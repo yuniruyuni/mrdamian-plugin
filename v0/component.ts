@@ -1,10 +1,6 @@
 import type { Arguments, Field } from "./environment";
-
-export interface EventEmitter {
-  emit(event: Field): void;
-}
-
-export type Fetch = (request: Request) => Response | Promise<Response>;
+import type { EventEmitter } from "./event";
+import type { Fetch } from "./fetch";
 
 export type ComponentConfig = {
   // "type" field is a component type.

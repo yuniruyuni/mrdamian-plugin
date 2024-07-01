@@ -1,5 +1,6 @@
 import { describe, expect, it } from "bun:test";
-import { Component, type ComponentConfig } from "./component";
+import { Component } from "./component";
+import type { ComponentConfig } from "./config";
 import type { Field } from "./environment";
 
 type DummyConfig = ComponentConfig;

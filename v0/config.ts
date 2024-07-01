@@ -1,4 +1,4 @@
-import type { Arguments } from "./environment";
+import type { Environment } from "./environment";
 
 export type ComponentConfig = {
   // "type" field is a component type.
@@ -13,5 +13,5 @@ export type ComponentConfig = {
   // this expression don't need define with "$" prefix.
   when?: string;
   // "args" field is a list of arguments for component.
-  args?: Arguments;
+  args?: Environment;
 };

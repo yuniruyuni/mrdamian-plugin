@@ -13,16 +13,11 @@ export abstract class Component<C extends ComponentConfig> {
     this.emitter.emit(event);
   }
 
+  get fetch(): Fetch | undefined {
+    return undefined;
+  }
+
   async initialize(_config: C): Promise<void> {}
   abstract process(config: C): Promise<Field>;
   async finalize(_config: C): Promise<void> {}
-
-  get fetch(): Fetch {
-    return (_req: Request): Response | Promise<Response> => {
-      return new Response("No configuration", {
-        status: 200,
-        headers: { "Content-Type": "text/html" },
-      });
-    };
-  }
 }

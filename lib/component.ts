@@ -4,6 +4,7 @@ import type { EventEmitter } from "./event";
 import type { Fetch } from "./fetch";
 
 export abstract class Component<C extends ComponentConfig> {
+  readonly mrdamianPluginRevision: number = 0;
   private readonly emitter: EventEmitter;
   constructor(emitter: EventEmitter) {
     this.emitter = emitter;

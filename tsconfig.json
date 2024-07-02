@@ -9,8 +9,7 @@
     /* Alias */
     "baseUrl": ".",
     "paths": {
-      "~/v0/*": ["v0/*"],
-      "~/v1/*": ["v1/*"]
+      "~/lib/*": ["lib/*"],
     },
 
     /* Bundler mode */
@@ -30,5 +29,5 @@
     /* Debugging */
     "sourceMap": true
   },
-  "include": ["v0/**/*", "v1/**/*"]
+  "include": ["lib/**/*"]
 }

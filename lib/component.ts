@@ -14,11 +14,19 @@ export abstract class Component<C extends ComponentConfig> {
     this.emitter.emit(event);
   }
 
-  async fetch(_config: C): Promise<Fetch | undefined> {
+  // fetch is used to define this component's http endpoints.
+  async fetch(): Promise<Fetch | undefined> {
     return undefined;
   }
 
+  // initialize is called when pipeline is constructing.
   async initialize(_config: C): Promise<void> {}
+  // start is called when pipeline is starting.
+  async start(_config: C): Promise<void> {}
+  // process is called when pipeline event has come.
   abstract process(config: C): Promise<Field>;
+  // stop is called when pipeline is stopping.
+  async stop(_config: C): Promise<void> {}
+  // finalize is called when pipeline is reconstructing.
   async finalize(_config: C): Promise<void> {}
 }

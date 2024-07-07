@@ -14,7 +14,7 @@ export abstract class Component<C extends ComponentConfig> {
     this.emitter.emit(event);
   }
 
-  get fetch(): Fetch | undefined {
+  async fetch(_config: C): Promise<Fetch | undefined> {
     return undefined;
   }
 

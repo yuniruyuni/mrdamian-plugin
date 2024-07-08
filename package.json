@@ -5,13 +5,20 @@
   "homepage": "https://github.com/yuniruyuni/mrdamian-plugin/README.md",
   "repository": "https://github.com/yuniruyuni/mrdamian-plugin",
   "bugs": "https://github.com/yuniruyuni/mrdamian-plugin/issues",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": {
     "name": "yuniruyuni",
     "email": "yuniruyuni@gmail.com"
   },
-  "files": ["tsconfig.json", "index.ts", "lib/**/*", "!lib/**/*.test.ts"],
-  "keywords": ["mrdamian"],
+  "files": [
+    "tsconfig.json",
+    "index.ts",
+    "lib/**/*",
+    "!lib/**/*.test.ts"
+  ],
+  "keywords": [
+    "mrdamian"
+  ],
   "license": "MIT",
   "main": "index.ts",
   "type": "module",

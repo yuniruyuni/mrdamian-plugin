@@ -1,6 +1,6 @@
 import type { ComponentConfig } from "./config";
 import type { Field } from "./environment";
-import type { EventEmitter } from "./event";
+import { type EventEmitter, Path } from "./event";
 import type { Fetch } from "./fetch";
 
 export abstract class Component<C extends ComponentConfig> {
@@ -10,8 +10,8 @@ export abstract class Component<C extends ComponentConfig> {
     this.emitter = emitter;
   }
 
-  emit(event: Field) {
-    this.emitter.emit(event);
+  emit(event: Field, path: Path = Path.local) {
+    this.emitter.emit(event, path);
   }
 
   // fetch is used to define this component's http endpoints.
@@ -20,13 +20,13 @@ export abstract class Component<C extends ComponentConfig> {
   }
 
   // initialize is called when pipeline is constructing.
-  async initialize(_config: C): Promise<void> {}
+  async initialize(_config: C, _path: Path): Promise<void> {}
   // start is called when pipeline is starting.
-  async start(_config: C): Promise<void> {}
+  async start(_config: C, _path: Path): Promise<void> {}
   // process is called when pipeline event has come.
-  abstract process(config: C): Promise<Field>;
+  abstract process(config: C, _path: Path): Promise<Field>;
   // stop is called when pipeline is stopping.
-  async stop(_config: C): Promise<void> {}
+  async stop(_config: C, _path: Path): Promise<void> {}
   // finalize is called when pipeline is reconstructing.
-  async finalize(_config: C): Promise<void> {}
+  async finalize(_config: C, _path: Path): Promise<void> {}
 }

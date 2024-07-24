@@ -23,6 +23,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
+    "build": "echo 'no need to build'",
     "check": "biome check --write",
     "format": "biome format --write",
     "lint": "biome lint",

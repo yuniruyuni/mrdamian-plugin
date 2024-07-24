@@ -15,7 +15,7 @@ class Dummy extends Component<DummyConfig> {
 
 class DummyEmitter {
   events: Field[] = [];
-  emit(event: Field, _: Path): void {
+  emit(event: Field, _: Path = Path.local): void {
     this.events.push(event);
   }
 }

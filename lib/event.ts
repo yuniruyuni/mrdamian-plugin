@@ -18,5 +18,8 @@ export const Path = {
 
 // EventEmitter is an interface that can be used to emit events to the pipeline.
 export interface EventEmitter {
+  // emit event to local.
+  emit(event: Field): void;
+  // emit event to specified path.
   emit(event: Field, path: Path): void;
 }

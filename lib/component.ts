@@ -20,13 +20,13 @@ export abstract class Component<C extends ComponentConfig> {
   }
 
   // initialize is called when pipeline is constructing.
-  async initialize(_config: C, _path: Path): Promise<void> {}
+  async initialize(_config: C, _emitter: EventEmitter): Promise<void> {}
   // start is called when pipeline is starting.
-  async start(_config: C, _path: Path): Promise<void> {}
+  async start(_config: C, _emitter: EventEmitter): Promise<void> {}
   // process is called when pipeline event has come.
-  abstract process(config: C, _path: Path): Promise<Field>;
+  abstract process(config: C, _emitter: EventEmitter): Promise<Field>;
   // stop is called when pipeline is stopping.
-  async stop(_config: C, _path: Path): Promise<void> {}
+  async stop(_config: C, _emitter: EventEmitter): Promise<void> {}
   // finalize is called when pipeline is reconstructing.
-  async finalize(_config: C, _path: Path): Promise<void> {}
+  async finalize(_config: C, _emitter: EventEmitter): Promise<void> {}
 }

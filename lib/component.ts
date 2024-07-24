@@ -3,21 +3,28 @@ import type { Field } from "./environment";
 import type { EventEmitter } from "./event";
 import type { Fetch } from "./fetch";
 
-export abstract class Component<C extends ComponentConfig> {
-  readonly mrdamianPluginRevision: number = 0;
+export interface Component<C extends ComponentConfig> {
   // fetch is used to define this component's http endpoints.
-  async fetch(): Promise<Fetch | undefined> {
-    return undefined;
-  }
+  // if you didn't write this function in your component, it will be generated automatically.
+  fetch?(): Promise<Fetch | undefined>;
 
   // initialize is called when pipeline is constructing.
-  async initialize(_config: C, _emitter: EventEmitter): Promise<void> {}
+  // if you didn't write this function in your component, it will be generated automatically.
+  initialize?(_config: C, _emitter: EventEmitter): Promise<void>;
   // start is called when pipeline is starting.
-  async start(_config: C, _emitter: EventEmitter): Promise<void> {}
+  // if you didn't write this function in your component, it will be generated automatically.
+  start?(_config: C, _emitter: EventEmitter): Promise<void>;
   // process is called when pipeline event has come.
-  abstract process(config: C, _emitter: EventEmitter): Promise<Field>;
+  // if you didn't write this function in your component, it will be generated automatically.
+  process?(config: C, _emitter: EventEmitter): Promise<Field>;
   // stop is called when pipeline is stopping.
-  async stop(_config: C, _emitter: EventEmitter): Promise<void> {}
+  // if you didn't write this function in your component, it will be generated automatically.
+  stop?(_config: C, _emitter: EventEmitter): Promise<void>;
   // finalize is called when pipeline is reconstructing.
-  async finalize(_config: C, _emitter: EventEmitter): Promise<void> {}
+  // if you didn't write this function in your component, it will be generated automatically.
+  finalize?(_config: C, _emitter: EventEmitter): Promise<void>;
 }
+
+// ComponentGenerator is a function that returns a new instance of a component.
+// All plugins must implement this type and declare as default export of entrypoint script.
+export type ComponentGenerator<C extends ComponentConfig> = () => Component<C>;

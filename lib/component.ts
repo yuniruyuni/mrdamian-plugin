@@ -1,19 +1,10 @@
 import type { ComponentConfig } from "./config";
 import type { Field } from "./environment";
-import { type EventEmitter, Path } from "./event";
+import type { EventEmitter } from "./event";
 import type { Fetch } from "./fetch";
 
 export abstract class Component<C extends ComponentConfig> {
   readonly mrdamianPluginRevision: number = 0;
-  private readonly emitter: EventEmitter;
-  constructor(emitter: EventEmitter) {
-    this.emitter = emitter;
-  }
-
-  emit(event: Field, path: Path = Path.local) {
-    this.emitter.emit(event, path);
-  }
-
   // fetch is used to define this component's http endpoints.
   async fetch(): Promise<Fetch | undefined> {
     return undefined;

@@ -24,7 +24,3 @@ export interface Component<C extends ComponentConfig> {
   // if you didn't write this function in your component, it will be generated automatically.
   finalize?(_config: C, _emitter: EventEmitter): Promise<void>;
 }
-
-// ComponentGenerator is a function that returns a new instance of a component.
-// All plugins must implement this type and declare as default export of entrypoint script.
-export type ComponentGenerator<C extends ComponentConfig> = () => Component<C>;

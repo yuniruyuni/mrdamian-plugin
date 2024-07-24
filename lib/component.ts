@@ -6,7 +6,7 @@ import type { Fetch } from "./fetch";
 export interface Component<C extends ComponentConfig> {
   // fetch is used to define this component's http endpoints.
   // if you didn't write this function in your component, it will be generated automatically.
-  fetch?(): Promise<Fetch | undefined>;
+  fetch?(): Promise<Fetch>;
 
   // initialize is called when pipeline is constructing.
   // if you didn't write this function in your component, it will be generated automatically.

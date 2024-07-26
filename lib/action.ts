@@ -7,6 +7,12 @@ export type Action = {
   id: string;
   // "type" field is a component type.
   type: string;
+  // "action" field is a action type.
+  // Each action type has different behavior.
+  // if user didn't specify this field, mrdamian core will fill this variable as ""(empty string) action.
+  // In normal case, for such default action type,
+  // you should proivde default behavior and initialization for the component instance.
+  action: string;
   // "name" field is a unique identifier for component instance.
   // this name will be used for assigning result to environment.
   // for example, if a component specified type = "twitch", name = "main",

@@ -5,7 +5,7 @@
   "homepage": "https://github.com/yuniruyuni/mrdamian-plugin/README.md",
   "repository": "https://github.com/yuniruyuni/mrdamian-plugin",
   "bugs": "https://github.com/yuniruyuni/mrdamian-plugin/issues",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "author": {
     "name": "yuniruyuni",
     "email": "yuniruyuni@gmail.com"
@@ -31,11 +31,11 @@
     "type": "tsc --noEmit"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.1",
+    "@biomejs/biome": "1.8.3",
     "@types/bun": "^1.1.6",
-    "@types/node": "^20.14.10",
-    "bun": "^1.1.18",
+    "@types/node": "^20.14.12",
+    "bun": "^1.1.20",
     "npm-run-all2": "^6.2.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   }
 }
